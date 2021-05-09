@@ -23,11 +23,19 @@ const personalMovieDB = {
     genres:[],
     privat: false
 };
-const a = prompt('Один из последких просмотренных фильмов?',''),
-      b = prompt('На сколько оцениете его?', ''),
-      c = prompt('Один из последких просмотренных фильмов?',''),
-      d = prompt('На сколько оцениете его?', '');
 
-      personalMovieDB.movies [a] = b;
-      personalMovieDB.movies [c] = d;
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из последких просмотренных фильмов?',''),
+          b = prompt('На сколько оцениете его?', '');
+    
+    if (a != null && b != null && a != '' && b != '' && a.length < 50 ) {
+        console.log('es');
+        personalMovieDB.movies [a] = b;
+    } else {
+        console.log('error');
+        i--;
+    }
+    
+}
+
       console.log(personalMovieDB);
