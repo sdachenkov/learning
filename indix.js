@@ -14,8 +14,17 @@ switch (num) {
 
 }
 
+let numberofFilm
+function start() {
+    numberofFilm = +prompt('Сколько мультиков вы уже смотрели?', '');
 
-const numberofFilms = +prompt('Сколько фильмов вы уже смотрели?', '');
+    while (numberofFilm == '' || numberofFilm == null || numberofFilm == isNaN(numberofFilm)) {
+        numberofFilm = +prompt('Сколько мультиков вы уже смотрели?', '');
+    }
+}
+
+start();
+
 const personalMovieDB = {
     count: numberofFilms,
     movies: {},
@@ -24,18 +33,69 @@ const personalMovieDB = {
     privat: false
 };
 
-for (let i = 0; i < 2; i++) {
-    const a = prompt('Один из последких просмотренных фильмов?',''),
-          b = prompt('На сколько оцениете его?', '');
-    
-    if (a != null && b != null && a != '' && b != '' && a.length < 50 ) {
-        console.log('es');
-        personalMovieDB.movies [a] = b;
-    } else {
-        console.log('error');
-        i--;
+
+function rememberMyFilms() {
+    for (let i = 0; i < 2; i++) {
+        const a = prompt('Один из последких просмотренных фильмов?',''),
+              b = prompt('На сколько оцениете его?', '');
+        
+        if (a != null && b != null && a != '' && b != '' && a.length < 50 ) {
+            console.log('es');
+            personalMovieDB.movies [a] = b;
+        } else {
+            console.log('error');
+            i--;
+        }
+        
     }
     
 }
 
-      console.log(personalMovieDB);
+rememberMyFilms();
+
+
+
+function showMyDB (hidden) {
+    if (!hidden) {
+        console.log(personalMovieDB);
+    }
+}
+showMyDB (personalMovieDB.privat);
+
+
+function first () {
+    // Do something
+    setTimeout(function() {
+        console.log (1);
+    }, 500);
+}
+
+  function second() {
+      console.log (2);
+  }
+
+  first();
+  second();
+
+function learnJS(lang, callback) {
+    alert (`Я учу:${lang}`);
+    collback();
+}
+
+
+function done() {
+    alert ('Я прошел этот урок!');
+}
+
+learnJS('JavaScript', done);
+
+
+
+
+
+
+
+
+
+
+
